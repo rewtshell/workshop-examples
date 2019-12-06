@@ -15,7 +15,7 @@
 #  - debug: var={{ item }}
 #    with_dict: whoami_out
   - debug:
-    msg: " {{whoami_out.stdout }}"
+      msg: " {{whoami_out.stdout }} "
 
     
   # Execute a command in the remote shell
@@ -30,4 +30,4 @@
 #  - debug: var={{ item }}
 #    with_dict: netstat_out
   - debug:
-    msg: " {{netstat_out.stdout }}"
+      msg: " {{netstat_out.stdout }} "
