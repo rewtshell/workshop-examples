@@ -1,0 +1,15 @@
+---
+- name: Windows server test
+  hosts: all
+
+  tasks:
+  - name: Save the result of 'whoami' in 'whoami_out'
+    win_command: whoami
+    register: whoami_out
+
+  # Execute a command in the remote shell; stdout goes to the specified
+  # file on the remote.
+  - name: Save the result of 'netstat -nr' in 'netstat_out'
+    win_shell: netstat -nr
+    register: netstat_out
+  
