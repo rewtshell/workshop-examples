@@ -7,7 +7,7 @@
   - name: Save the result of 'whoami' in 'whoami_out'
     win_command: whoami
     register: whoami_out
-    changed_when: whoami_out.stdout_lines
+#    changed_when: whoami_out.stdout_lines
 #  - debug: msg="{{ whoami_out.stdout }}"
 #  - debug: msg="{{item}}"
 #    with_items: whoami_out.stdout_lines
@@ -15,8 +15,8 @@
 #  - debug: var={{ item }}
 #    with_dict: whoami_out
   - debug:
-    var: whoami_out
-    verbosity: 2
+    msg: " {{whoami_out.stdout }}"
+
     
   # Execute a command in the remote shell
   - name: Save the result of 'netstat -nr' in 'netstat_out'
@@ -30,5 +30,4 @@
 #  - debug: var={{ item }}
 #    with_dict: netstat_out
   - debug:
-    var: netstat_out
-    verbosity: 2
+    msg: " {{netstat_out.stdout }}"
