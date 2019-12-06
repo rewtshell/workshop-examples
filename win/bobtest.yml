@@ -31,4 +31,5 @@
 #    with_dict: netstat_out
   - debug:
 #      msg: " {{netstat.stdout }} "
-    msg: "{{ netstat.results[0].results }}"
+#    msg: "{{ netstat.results[0].results }}"
+      msg: " {{netstat.results }} "
