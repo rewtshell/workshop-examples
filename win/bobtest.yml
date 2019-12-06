@@ -6,10 +6,11 @@
   - name: Save the result of 'whoami' in 'whoami_out'
     win_command: whoami
     register: whoami_out
+  - debug: msg="{{ whoami_out.stdout }}"
 
   # Execute a command in the remote shell; stdout goes to the specified
   # file on the remote.
   - name: Save the result of 'netstat -nr' in 'netstat_out'
     win_shell: netstat -nr
     register: netstat_out
-  
+  - debug: msg="{{ netstat_out.stdout }}"  
