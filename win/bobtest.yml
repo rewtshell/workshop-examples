@@ -8,16 +8,20 @@
     register: whoami_out
     changed_when: whoami_out.stdout_lines
 #  - debug: msg="{{ whoami_out.stdout }}"
-  - debug: msg="{{item}}"
-    with_items: whoami_out.stdout_lines
-    when: whoami_out.stdout_lines
-
+#  - debug: msg="{{item}}"
+#    with_items: whoami_out.stdout_lines
+#    when: whoami_out.stdout_lines
+  - debug: var={{ item }}
+    with_dict: whoami_out
+    
   # Execute a command in the remote shell
   - name: Save the result of 'netstat -nr' in 'netstat_out'
     win_shell: netstat -nr
     register: netstat_out
     changed_when: netstat_out.stdout_lines
 #  - debug: msg="{{ netstat_out.stdout }}"  
-  - debug: msg="{{item}}"
-    with_items: netstat_out.stdout_lines
-    when: netstat_out.stdout_lines
+#  - debug: msg="{{item}}"
+#    with_items: netstat_out.stdout_lines
+#    when: netstat_out.stdout_lines
+  - debug: var={{ item }}
+    with_dict: netstat_out
