@@ -12,8 +12,11 @@
 #  - debug: msg="{{item}}"
 #    with_items: whoami_out.stdout_lines
 #    when: whoami_out.stdout_lines
-  - debug: var={{ item }}
-    with_dict: whoami_out
+#  - debug: var={{ item }}
+#    with_dict: whoami_out
+  - debug:
+    var: whoami_out
+    verbosity: 2
     
   # Execute a command in the remote shell
   - name: Save the result of 'netstat -nr' in 'netstat_out'
@@ -24,5 +27,8 @@
 #  - debug: msg="{{item}}"
 #    with_items: netstat_out.stdout_lines
 #    when: netstat_out.stdout_lines
-  - debug: var={{ item }}
-    with_dict: netstat_out
+#  - debug: var={{ item }}
+#    with_dict: netstat_out
+  - debug:
+    var: netstat_out
+    verbosity: 2
