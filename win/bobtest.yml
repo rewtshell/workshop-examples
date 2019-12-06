@@ -1,6 +1,7 @@
 ---
 - name: Windows server test
   hosts: all
+  gather_facts: no
 
   tasks:
   - name: Save the result of 'whoami' in 'whoami_out'
