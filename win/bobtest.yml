@@ -34,4 +34,4 @@
 #      msg: " {{netstat.stdout }} "
 #    msg: "{{ netstat.results[0].results }}"
 #      msg: " {{netstat.results[0].results }} "
-  - debug: var=whoami.stdout_lines
+  - debug: var=netstat.stdout_lines
