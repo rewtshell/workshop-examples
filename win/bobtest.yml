@@ -4,34 +4,20 @@
   gather_facts: no
 
   tasks:
-  - name: Save the result of 'whoami' in 'whoami_out'
+  - name: Save the result of 'whoami' in 'whoami'
     win_command: whoami
     register: whoami
 #    changed_when: whoami_out.stdout_lines
 #  - debug: msg="{{ whoami_out.stdout }}"
-#  - debug: msg="{{item}}"
-#    with_items: whoami_out.stdout_lines
-#    when: whoami_out.stdout_lines
-#  - debug: var={{ item }}
-#    with_dict: whoami_out
-#  - debug:
-#      msg: " {{whoami.stdout }} "
   - debug: var=whoami.stdout_lines
 
     
   # Execute a command in the remote shell
-  - name: Save the result of 'netstat -nr' in 'netstat_out'
+  - name: Save the result of 'netstat -nr' in 'netstat'
     win_shell: netstat -nr
     register: netstat
 #    changed_when: netstat_out.stdout_lines
 #  - debug: msg="{{ netstat_out.stdout }}"  
-#  - debug: msg="{{item}}"
-#    with_items: netstat_out.stdout_lines
-#    when: netstat_out.stdout_lines
-#  - debug: var={{ item }}
-#    with_dict: netstat_out
-#  - debug:
-#      msg: " {{netstat.stdout }} "
-#    msg: "{{ netstat.results[0].results }}"
-#      msg: " {{netstat.results[0].results }} "
-  - debug: var=netstat.stdout_lines
+#  - debug: var=netstat.stdout_lines
+  - debug:
+    var: netstat.stdout_lines
