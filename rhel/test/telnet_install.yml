@@ -1,0 +1,9 @@
+---
+- name: telnet client installed
+  hosts: all
+
+  tasks:
+  - name: latest telnet version installed
+    yum:
+      name: telnet
+      state: latest
